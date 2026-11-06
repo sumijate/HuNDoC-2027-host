@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="10th HuNDoC 2027" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://hundoc2027.hns.org/images/HUNDOC-2027-header.webp" />
+    <meta property="og:url" content="https://hundoc2027.hns.org/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="The official website for 10th HuNDoC organised in Szeged, Hungary | 2027 · Program" />
+    <meta name="author" content="Fruzsina Walter" />
+    <meta name="theme-color" content="#837296" />
+    <title>10th HuNDoC - 2027 · Program</title>
+
+    <script src="./assets/dist/js/color-modes.js?v=1.0.0"></script>
+    <script src="./assets/dist/js/text-conversion.js?v=1.0.0" defer></script>
+
+    <link rel="preload" as="image" href="./images/background.png">
+    <link href="./assets/dist/css/bootstrap.min.css?v=1.0.0" rel="stylesheet" />
+    <link href="./assets/dist/css/hundoc.css?v=1.0.0" rel="stylesheet" />
+    <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?v=1.0.0" rel="stylesheet" />
+
+    <link rel="icon" href="./assets/icons/favicon.ico">
+</head>
+
+<body class="d-flex flex-column h-100">
+    
+    <svg xmlns="https://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path
+            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z">
+        </path>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z">
+        </path>
+        <path
+            d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z">
+        </path>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+            d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z">
+        </path>
+    </symbol>
+</svg>
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center border border-0" id="bd-theme"
+        type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+            <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                aria-pressed="false">
+                <svg class="bi me-2 opacity-50" aria-hidden="true">
+                    <use href="#sun-fill"></use>
+                </svg>
+                Light
+                <svg class="bi ms-auto d-none" aria-hidden="true">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                aria-pressed="false">
+                <svg class="bi me-2 opacity-50" aria-hidden="true">
+                    <use href="#moon-stars-fill"></use>
+                </svg>
+                Dark
+                <svg class="bi ms-auto d-none" aria-hidden="true">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                aria-pressed="true">
+                <svg class="bi me-2 opacity-50" aria-hidden="true">
+                    <use href="#circle-half"></use>
+                </svg>
+                Auto
+                <svg class="bi ms-auto d-none" aria-hidden="true">
+                    <use href="#check2"></use>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</div>
+<header class="fixed-top">
+    <nav class="navbar navbar-expand-md container">
+        <div class="container-fluid">
+            <img class="my-logo px-2" src="./assets/brand/HunDoc-Logo-2027.svg">
+            <button class="navbar-toggler rounded-pill ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-2 border border-3 rounded-pill d-inline-block border-transparent border-hover"
+                            href="index.html">Invitation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 border border-3 rounded-pill d-inline-block border-transparent border-hover"
+                            href="information.html">General information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 border border-3 rounded-pill d-inline-block border-my-dark border-hover bg-active active"
+                            href="program.html">Program</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 border border-3 rounded-pill d-inline-block border-transparent border-hover"
+                            href="registration.html">Registration & Abstract submission</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <main class="flex-grow-1">
+        <div class="container">
+    <h1>Program</h1>
+
+    <h2>Program outline</h2>
+
+    <div class="table-responsive">
+        <table class="table program-table">
+            <tbody>
+                <tr>
+                    <th scope="row" class="program-time">08:00–09:00</th>
+                    <td><strong>Registration</strong></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">09:00–09:15</th>
+                    <td><strong>Opening and Introduction of the Plenary Lecture</strong></td>
+                </tr>
+                <tr class="no-divider-after">
+                    <th scope="row" class="program-time">09:15–09:45</th>
+                    <td class="put-divider-after">
+                        <strong>Plenary lecture</strong> — <span class="name">Prof. Zsuzsanna Helyes</span>
+                        <div class="program-detail">
+                            Department of Pharmacology and Pharmacotherapy, Medical School,
+                            University of Pécs, Pécs, Hungary
+                        </div>
+                    </td>
+                </tr>
+                <tr class="no-divider-after">
+                    <th scope="row" class="program-time">09:45–10:45</th>
+                    <td>
+                        <strong>Round table / Career orientation workshop - from industry to academia</strong>
+                        <div class="program-detail">Including the plenary lecturer</div>
+                    </td>
+                </tr>
+                <tr class="program-moderator">
+                    <th></th>
+                    <td><strong>Moderator:</strong> <span class="name">Ákos Menyhárt</span> (HUN-REN BRC)
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">10:45–11:30</th>
+                    <td><strong>Informal networking</strong></td>
+                </tr>
+                <tr class="no-divider-after">
+                    <th scope="row" class="program-time">11:30–13:00</th>
+                    <td>
+                        <strong>Short presentations</strong>
+                        <div class="program-detail">
+                            6 presenters, 10 minute presentations + 5 minute questions
+                        </div>
+                    </td>
+                </tr>
+                <tr class="program-moderator">
+                    <th></th>
+                    <td><strong>Moderator:</strong> <span class="name">Fruzsina Walter</span> (HUN-REN BRC)
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">13:00–14:00</th>
+                    <td>
+                        <strong>Lunch</strong>
+                        <div class="program-detail">BRC canteen</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">14:00–15:30</th>
+                    <td>
+                        <strong>Mini-poster sessions: “Poster whirlpool”</strong>
+                        <div class="program-detail">
+                            Posters are mixed every 30 min, in total 3 times
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">15:30–16:15</th>
+                    <td><strong>Informal networking</strong></td>
+                </tr>
+                <tr class="no-divider-after">
+                    <th scope="row" class="program-time">16:15–17:15</th>
+                    <td>
+                        <strong>Lecture and discussion</strong> — <span class="name">Michelle Horváth</span>
+                        <div class="program-detail">
+                            Junior research fellow, Centre for Social Sciences, Eötvös Loránd University, Budapest:
+                        </div>
+                        <div class="program-detail">
+                            „Being a young researcher in today’s Hungary: challenges, satisfaction, mental health and
+                            well-being" — Findings from the joint survey of the Hungarian Academy of Sciences (MTA) and
+                            the Hungarian Young Academy (FKA) in 2025
+                        </div>
+                    </td>
+                </tr>
+                <tr class="program-moderator">
+                    <th></th>
+                    <td><strong>Moderator:</strong> <span class="name">Szilvia Veszelka</span> (HUN-REN BRC)
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">17:15</th>
+                    <td><strong>Closing remarks</strong></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="program-time">18:30</th>
+                    <td><strong>Social program</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Lecturers and round table discussion</h2>
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item accordion-section rounded-0">
+            <h3 class="accordion-section-title">
+                Lecturers
+            </h3>
+        </div>
+        <div class="accordion-item rounded-0">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Zsuzsanna Helyes
+                </button>
+            </h3>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body row">
+                    <div class="col-md-3">
+                        <img class="mx-auto d-block profile-img" src="./images/ZsuzsaHelyes.jpg">
+                    </div>
+                    <div class="col-md-9 text-justify">
+                        <p>Zsuzsanna Helyes is a full professor of pharmacology at the Department of Pharmacology and
+                        Pharmacotherapy, Medical School, University of Pécs, Hungary, and a Corresponding Member of the
+                        Hungarian Academy of Sciences.</p>
+                        <p>Her research focuses on neuropharmacology, particularly the role of capsaicin-sensitive sensory
+                        nerves and neurovascular–immune interactions in inflammation and pain, both in the peripheral
+                        and central nervous systems. Her work also explores the relationship between these mechanisms
+                        and psychological conditions, including anxiety and depression, with the aim of identifying
+                        novel therapeutic targets for analgesic, anti-inflammatory and antidepressant drug development.</p>
+                        <p>Professor Helyes is an internationally recognized researcher, author of numerous scientific
+                        publications and inventor on several patents. She is also deeply committed to mentoring the next
+                        generation of scientists, having supervised more than 20 successfully defended PhD theses. Her
+                        scientific achievements have been recognised with numerous prestigious awards, including the
+                        Hungarian Academy of Sciences' Academic Award and the Szentágothai Prize.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item rounded-0">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Michelle Horváth
+                </button>
+            </h3>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body row">
+                    <div class="col-md-3">
+                        <img class="mx-auto d-block profile-img" src="./images/HorváthMichelle2.jpeg">
+                    </div>
+                    <div class="col-md-9">
+                        <p>Michelle Horváth is a junior research fellow at the Institute for Computational Social Science within the Centre for Social Sciences, and is currently a doctoral student at the Doctoral School of Sociology at Eötvös Loránd University (ELTE). She completed her undergraduate studies in International Business at Corvinus University of Budapest, followed by a Master's degree in Survey Statistics and Data Analytics at ELTE. Her main research interests focus on social stratification in the digital space. In 2025, she co-authored the study titled „The Situation of Researchers in Hungary and Connected to the Country: Key findings of the MTA-FKA 2025 Survey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item accordion-section rounded-0">
+            <h3 class="accordion-section-title">
+                Round table discusson
+            </h3>
+        </div>
+        <div class="accordion-item rounded-0">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Zsuzsanna Helyes
+                </button>
+            </h3>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body row">
+                    <div class="col-md-3">
+                        <img class="mx-auto d-block profile-img" src="./images/ZsuzsaHelyes.jpg">
+                    </div>
+                    <div class="col-md-9">
+                        <p>Zsuzsanna Helyes is a full professor of pharmacology at the Department of Pharmacology and
+                        Pharmacotherapy, Medical School, University of Pécs, Hungary, and a Corresponding Member of the
+                        Hungarian Academy of Sciences.</p>
+                        <p>Her research focuses on neuropharmacology, particularly the role of capsaicin-sensitive sensory
+                        nerves and neurovascular–immune interactions in inflammation and pain, both in the peripheral
+                        and central nervous systems. Her work also explores the relationship between these mechanisms
+                        and psychological conditions, including anxiety and depression, with the aim of identifying
+                        novel therapeutic targets for analgesic, anti-inflammatory and antidepressant drug development.</p>
+                        <p>Professor Helyes is an internationally recognized researcher, author of numerous scientific
+                        publications and inventor on several patents. She is also deeply committed to mentoring the next
+                        generation of scientists, having supervised more than 20 successfully defended PhD theses. Her
+                        scientific achievements have been recognised with numerous prestigious awards, including the
+                        Hungarian Academy of Sciences' Academic Award and the Szentágothai Prize.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item rounded-0">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Emese Kis
+                </button>
+            </h3>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body row">
+                    <div class="col-md-3">
+                        <img class="mx-auto d-block profile-img" src="./images/Emese Kis2.jpeg">
+                    </div>
+                    <div class="col-md-9">
+                        <p>Dr. Emese Kis is Scientific Director at SOLVO Biotechnology, a Charles River company based in Szeged, Hungary, where she has built a career spanning more than two decades in the biotechnology industry. Before this position she also was the Head of the In Vitro Laboratory and Head of the Production Laboratory.</p>
+                        <p>Her professional expertise focuses on drug transporter research and the development of in vitro experimental systems for investigating drug disposition, transporter function and drug-drug interactions. Her work contributes to the development and application of specialised in vitro technologies supporting pharmaceutical research and drug development.</p>
+                        <p>She obtained her PhD in Biology from the University of Szeged (2008), following a Master's degree in Chemical Technology and Biotechnology from Budapest University of Technology and Economics (2002).</p>
+                        <p>Her career provides an excellent example of how scientific expertise can be translated into industrial innovation and leadership, bridging fundamental research and pharmaceutical development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item rounded-0">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Márton Rózsa
+                </button>
+            </h3>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body row">
+                    <div class="col-md-3">
+                        <img class="mx-auto d-block profile-img" src="./images/Marci Rozsa2.jpg">
+                    </div>
+                    <div class="col-md-9">
+                        <p>Dr. Márton Rózsa is a neuroscientist at the HUN-REN Institute of Experimental Medicine (KOKI), Budapest, Hungary, where he leads research on neuronal diversity and cortical circuit function. His research investigates how distinct types of inhibitory neurons shape neuronal network activity and influence behaviour.</p>
+                        <p>After obtaining his PhD at the University of Szeged in 2018, he spent approximately six years in the United States, first as a postdoctoral researcher at the Janelia Research Campus of the Howard Hughes Medical Institute (2019–2021), followed by research at the Allen Institute for Neural Dynamics in Seattle (2022–2025). His scientific achievements have been recognised with the János Bolyai Research Scholarship (2025) and an EMBO Installation Grant (2026), supporting the establishment of his independent research group.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item rounded-0">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Gábor Molnár
+                </button>
+            </h3>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body row">
+                    <div class="col-md-3">
+                        <img class="mx-auto d-block profile-img" src="./images/Gabor Molnar2.png">
+                    </div>
+                    <div class="col-md-9">
+                        <p>Dr. Gábor Molnár is a Senior Researcher at the Department of Physiology, Anatomy and Neuroscience, Faculty of Science and Informatics, University of Szeged, Hungary, and a member of the MTA-SZTE Research Group for Cortical Neuronal Networks.</p>
+                        <p>His research focuses on the cellular and synaptic mechanisms underlying the function of neuronal networks in the cerebral cortex, with particular emphasis on the diversity and physiological properties of cortical neurons. His work contributes to a better understanding of the organisation and functioning of the human cerebral cortex, combining experimental approaches to investigate neuronal and synaptic activity.</p>
+                        <p>He obtained his PhD in 2005 and has been a member of the research community at the University of Szeged since 2004. Since 2007, he has held a senior research position within the MTA–SZTE research group. His scientific achievements have been recognised with the Academic Youth Award (2009) and the János Bolyai Research Scholarship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+    </main>
+
+    <footer class="footer container mt-auto py-3 bg-body-tertiary">
+    <section class="text-center pb-4">
+        <div class="row justify-content-md-center row-cols-1 row-cols-md-2 conf-text">
+            <!-- <section class="text-center pt-4"> -->
+            <!-- <h2 class="fs-3">Sponsors</h2> -->
+            <div class="col-lg-3 container">
+                <div class="row justify-content-center align-items-center gy-3">
+                    <div class="col-lg-9">
+                        <img class="img-fluid sponsor-img1 hns-logo" src="./assets/brand/hns_t.png" alt="HNS sponsor logo">
+                    </div>
+                    <div class="col-lg-9">
+                        <img class="img-fluid sponsor-img1 brc-logo" src="./assets/brand/HUN-REN_BRC_bp.svg" alt="BP sponsor logo">
+                    </div>
+                    <div class="col-lg-9">
+                        <img class="img-fluid sponsor-img1 nkfih-logo" src="./assets/brand/nkfih-en-logo.svg" alt="PCC sponsor logo">
+                    </div>
+                </div>
+            </div>
+            <!-- </section> -->
+            <div class="col-lg-3">
+                <span class="stats">Contact us:</span>
+                <!-- <div class="row justify-content-center align-items-center"> -->
+                <span class="row justify-content-center align-items-center text-conversion">0.1.2</span>
+                <!-- </div> -->
+            </div>
+            <div class="col-lg-3">
+                <span class="stats">Venue:</span>
+                <div class="row justify-content-center align-items-center">
+                    HUN-REN<br> Biological Research Centre<br>
+                    6726 Szeged, Temesvári krt. 62.
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <span class="stats">Organizing committee:</span>
+                <div class="row justify-content-center align-items-center committee-affiliation">HUN-REN BRC</div>
+                <div class="row justify-content-center align-items-center">Ana Martins</div>
+                <div class="row justify-content-center align-items-center">Szilvia Veszelka</div>
+                <div class="row justify-content-center align-items-center">Fruzsina Walter</div>
+                <div class="row justify-content-center align-items-center committee-affiliation">University of Szeged</div>
+                <div class="row justify-content-center align-items-center">Rita Frank</div>
+                <div class="row justify-content-center align-items-center">Ákos Menyhárt</div>
+                <div class="row justify-content-center align-items-center">Anna Törteli</div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+    <span class="text-body-secondary">© 2027 - 10<sup>th</sup> HuNDoC</span>
+    </div>
+</footer>
+
+    <script src="./assets/dist/js/bootstrap.bundle.min.js" class="astro-vvvwv3sm"></script>
+
+</body>
+
+</html>
