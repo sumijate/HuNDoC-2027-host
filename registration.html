@@ -13,13 +13,13 @@
     <meta name="theme-color" content="#837296" />
     <title>10th HuNDoC - 2027 · Registration</title>
 
-    <script src="./assets/dist/js/color-modes.js?v=1.0.2"></script>
-    <script src="./assets/dist/js/text-conversion.js?v=1.0.2" defer></script>
+    <script src="./assets/dist/js/color-modes.js?v=1.0.3"></script>
+    <script src="./assets/dist/js/text-conversion.js?v=1.0.3" defer></script>
 
     <link rel="preload" as="image" href="./images/background.png">
-    <link href="./assets/dist/css/bootstrap.min.css?v=1.0.2" rel="stylesheet" />
-    <link href="./assets/dist/css/hundoc.css?v=1.0.2" rel="stylesheet" />
-    <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?v=1.0.2" rel="stylesheet" />
+    <link href="./assets/dist/css/bootstrap.min.css?v=1.0.3" rel="stylesheet" />
+    <link href="./assets/dist/css/hundoc.css?v=1.0.3" rel="stylesheet" />
+    <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?v=1.0.3" rel="stylesheet" />
 
     <link rel="icon" href="./assets/icons/favicon.ico">
 </head>
@@ -99,7 +99,8 @@
 <header class="fixed-top">
     <nav class="navbar navbar-expand-md container">
         <div class="container-fluid">
-            <img class="my-logo px-2" src="./assets/brand/HunDoc-Logo-2027.svg">
+            <img class="my-logo logo-light px-2" src="./assets/brand/HunDoc-Logo-2027.svg" alt="HuNDoC 2027">
+            <img class="my-logo logo-dark px-2" src="./assets/brand/HunDoc-Logo-2027_night.svg" alt="HuNDoC 2027">
             <button class="navbar-toggler rounded-pill ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -192,8 +193,11 @@
             </div>
         </div>
     </section>
-    <div class="container">
-    <span class="text-body-secondary">© 2027 - 10<sup>th</sup> HuNDoC</span>
+    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <span class="text-body-secondary">© 2027 - 10<sup>th</sup> HuNDoC</span>
+        <div class="text-body-secondary d-flex gap-3">
+            Design: Nóra Kucsápszky and László Dér             
+        </div>
     </div>
 </footer>
 

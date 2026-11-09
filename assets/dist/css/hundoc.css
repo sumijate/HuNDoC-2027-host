@@ -124,6 +124,18 @@ h3 {
   height: 64px;
 }
 
+.logo-dark {
+  display: none;
+}
+
+[data-bs-theme="dark"] .logo-light {
+  display: none;
+}
+
+[data-bs-theme="dark"] .logo-dark {
+  display: block;
+}
+
 .header-img {
   max-width: 960px;
 }
